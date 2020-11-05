@@ -18,7 +18,7 @@ function spotify() {
             'Content-type' : "application/x-www-form-urlencoded",
             'Authorization': 'Basic ' + encoded
         },
-        body: JSON.stringify(params),
+        body: params,
     };
 
     fetch(`https://accounts.spotify.com/api/token`, apiRequest)
