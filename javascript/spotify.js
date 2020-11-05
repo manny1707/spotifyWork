@@ -1,5 +1,5 @@
 $( document ).ready( function (){
-    console.log( 'script.js ready!' );
+    console.log( 'spotify.js ready!' );
     console.log('version 6')
 
     const getUrlParameter = (sParam) => {
@@ -17,7 +17,7 @@ $( document ).ready( function (){
       }
   };
 
-    const accessToken = getUrlParameter('access_token');
+    const accessToken = getUrlParameter('code');
     console.log(`accessToken ${accessToken}`);
 
 });
