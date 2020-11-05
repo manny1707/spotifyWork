@@ -47,6 +47,11 @@ $( document ).ready(function() {
 
 });
 
+function spotify() {
+    console.log(window.location);
+}
+
+spotify();
 /*async function getspotify() {
     console.log("apiResponse")
     let apiHeaders = new Headers();
