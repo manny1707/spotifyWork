@@ -2,8 +2,12 @@ var codeForAuth = null
 
 function spotify() {
     codeForAuth = window.location.search.substr(6, window.location.search.length-6);
-    let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork"
-    const params = { grant_type : "authorization_code", code: codeForAuth, redirect_uri: redirect};
+    let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
+    let params = { 
+        grant_type : "authorization_code", 
+        code: codeForAuth, 
+        redirect_uri: redirect
+    };
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
 
@@ -12,7 +16,7 @@ function spotify() {
         method: 'POST',
         headers: {
             'Content-type' : "application/x-www-form-urlencoded",
-            'Authorization': 'Authorization: Basic ' + encoded
+            'Authorization': 'Basic ' + encoded
         },
         body: JSON.stringify(params),
     };
