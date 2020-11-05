@@ -21,7 +21,6 @@ function spotify() {
         headers: {
             'Content-Type' : "application/x-www-form-urlencoded",
             'Authorization': 'Basic ' + encoded,
-            'Accept':'application/json'
         },
         body: JSON.stringify(params)
     };
