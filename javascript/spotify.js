@@ -3,11 +3,15 @@ var codeForAuth = null
 function spotify() {
     codeForAuth = window.location.search.substr(6, window.location.search.length-6);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
-    let params = { 
+    let param = new FormData();
+    param.append('grant_type', 'client_credentials');
+    param.append('code', codeForAuth);
+    param.append('redirect_uri', redirect);
+    /*let params = { 
         grant_type : "authorization_code", 
         code: codeForAuth, 
         redirect_uri: redirect
-    };
+    };*/
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
 
@@ -15,10 +19,12 @@ function spotify() {
     let apiRequest = {
         method: 'POST',
         headers: {
-            'Content-type' : "application/x-www-form-urlencoded",
-            'Authorization': 'Basic ' + encoded
+            'Content-Type' : "application/x-www-form-urlencoded",
+            'Authorization': 'Basic ' + encoded,
+            'Accept':'application/json'
         },
-        body: params,
+        body: param,
+        mode: 'no-cors'
     };
 
     fetch(`https://accounts.spotify.com/api/token`, apiRequest)
