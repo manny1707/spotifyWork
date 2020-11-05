@@ -1,0 +1,492 @@
+/* To Do:
+- split into multiple .css files by subject
+- resolve width-scaling collision from logo and navbar (use minwindowsize inline functionality)
+- Add favicon which should just be stylized e from logo
+- add simple login pop up
+- add simple API transaction box in body of homepage
+- add weather dropdown deployment animation 
+- add zindex to triangle which animates as per Andrews additions
+- weather drop down needs to retract on mouse click (other than weather button)
+*/
+
+/* BEGIN PORTFOLIO PAGE */
+/* get bold italicized and emphasis typesets here (!) */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap');
+
+/* most of the formatting is in em units not vw/vh so some of those may need to change */
+
+*{
+	/* modify these after all elements are established */
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f0f0f0;
+}
+
+header {
+	
+	position: relative;
+	top: 1px;
+	background-color: #A5DDD3;
+	height: 3em;	
+	background-size: cover; 		
+	background-position: center;
+	border: 2px solid #3d3d3d;
+	border-radius: 10px;
+}
+
+.pagehead-seperator {
+	/* centers the text in the header */
+	transform: translate(-2%, 75%);
+	font-family: 'Lato' bold #3d3d3d;
+	text-align: right;
+	position: relative;
+	top: 1px;
+}
+
+.user-welcome-message {
+	transform: translate(-2%, 75%);
+	font-family: 'Lato' bold #3d3d3d;
+	font-size: 20px;
+	text-align: right;
+	position: relative;
+	top: 1px;
+}
+
+.logo img {
+	/* position: relative; */
+	float: left;
+	max-width: 8em;
+	height: auto;
+	padding: .6em;
+	padding-left: 1em;
+	
+}
+
+/* begin nav bar */
+.nav-entries {
+	/* for nav bar, all ul li, ul li a, ul li a:hover ineherit from this */
+	/* position: relative; */
+	float: right;
+	list-style-type: none;
+	margin-top: 26px;
+	margin-right: 2em;
+	font-family: 'Lato';
+	font-size: 1.25em;
+	/* font-weight: bold; */
+}
+
+.nav-entries li{
+	display: inline-block;
+	transform: translateY(-25%);
+}
+
+.nav-entries li a{
+	/* list element not hovered */
+	text-decoration: none;
+	color: #3d3d3d;
+	padding: 5px 20px;
+	border: 2px solid transparent;
+	transition: 0.8s ease;
+	text-shadow: 1px 2px 4px #3d3d3d;
+}
+
+.nav-entries li a:hover {
+	/* list element while mouseover */
+	background-color: #A5DDD3;
+	border-bottom: 2px solid #3d3d3d;
+	border-left: 2px solid #3d3d3d;
+	border-right: 2px solid #3d3d3d;
+	transition: 0.35s ease;
+	padding: .99em;
+	text-shadow: .5px .5px 1px #3d3d3d;
+	/* box-shadow: 1px 2px 4px #3d3d3d; */
+}
+/* end nav bar */
+
+/* begin weather button */
+
+.drop-tri-u {
+	/* dropdown triangle arrow normal position */
+	position: absolute;
+	top: 9px;
+	right: 5px;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-right: 12px solid #3d3d3d;
+	border-bottom: 6px solid transparent;
+	transition: 0.35s ease;
+	/* figure out a way to dropshadow this */
+	/* box-shadow: 1px 2px 4px #3d3d3d; */
+}
+
+.nav-postseperator {
+	padding: 2em;
+	background-color: #f0f0f0;
+	background-size: cover;
+
+}
+
+.banner {
+	font: italic small-caps bold 12px/30px Georgia, serif;
+	padding: 10em;
+	border-color: #3d3d3d;
+	border-radius: 10px;
+	background-image: url("BANNER-HOLDER.jpeg");
+	background-position: center;
+	background-color: #3d3d3d;
+	background-size: 60em 20em;
+}
+
+.banner-message {
+	text-align: center;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Oswald', sans-serif;
+	margin-top: -0.2em;
+	color: #f1f1f1;
+	font-size: 5em;
+	letter-spacing: .05vw;
+}
+
+.footer {
+	position: relative;
+	margin: 50px 0;
+	padding: 35px 0;
+	text-shadow: 2px 2px 4px #000000;
+	margin: .3em;
+	margin-top: 1em;
+	text-align: center;
+	text-decoration: none;
+	background-color: #C9C8BD;
+  	background-size: cover;
+  	font-weight: 300;
+  	letter-spacing: 0.05em;
+  	color: #F7EDE1;
+}
+
+/*
+NOTE: on weather button dropdown:
+to help formatting the dropdown, we have a dropdown box which shows the weather API 
+transaction information, formatted to our spec. However when the user clicks the Weather ul item 
+it also populates a new box to cover the orginal weather ul box, this will likely have to be formatted 
+separately and tested on different devices, but it is the quickest and easiest way to imbed our drop-tri 
+element without creating distinct classes for each ul element
+*/
+
+.weather-btn-cover {
+	/* needs animation */
+	display: none;
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	width: 115px;
+	height: 66px;
+	border-left: 2px solid #3d3d3d;
+	border-right: 2px solid #3d3d3d;
+  	border-top: 1px solid #3d3d3d;
+	/* transition: 0.8s ease; */
+	background-color: #28ABB9;
+	z-index: 2;
+}
+
+.weather-btn-cover p {
+	/* font attributes */
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-family: 'Lato';
+	display: inline-block;
+	/* color: #3d3d3d; */
+	color: #f0f0f0;
+	text-shadow: .5px .5px 1px #3d3d3d;
+
+}
+
+.drop-tri-d {
+	/* dropdown triangle arrow deployed position */
+	position: absolute;
+	top: 28px;
+	right: 4px;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-right: 12px solid #3d3d3d;
+	border-bottom: 6px solid transparent;
+	transform: rotate(-90deg);
+	transition: 0.35s ease;
+	/* figure out a way to dropshadow this */
+	/* box-shadow: 1px 2px 4px #3d3d3d; */
+}
+
+.weather-drop-content {
+	/* needs animation */
+	display: none;
+	position: absolute;
+	min-width: 160px;
+	overflow: auto;
+	box-shadow: 2px 8px 16px 0px #3d3d3d;
+	right: 0px;
+	top: 45px;
+	width: 225px;
+	height: 300px;
+	background-color: #28ABB9;
+	border: 2px solid #3d3d3d;
+	z-index: 1;
+}
+
+.show {
+	display: block;
+}
+
+.display-space {
+	/* overflow: auto; */
+	/* float: left; */
+	margin-left: auto;
+	margin-right: auto;
+	height: 25.5em;
+	padding-bottom: 2em;
+	text-align: center;
+	max-width: 80em;
+	/* background-color: red; */
+}
+
+.exercise-box {
+	margin-top: 1em;	
+	margin-left: .25em;
+	float: left;
+	width: calc(58%);
+	height: 11em;
+	background-color: #f1f1f1;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border: 2px solid #3d3d3d;
+	border-radius: 15px;
+	box-shadow: 1px 2px 4px #3d3d3d;
+}
+
+.exercise-info {
+	text-align: left;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin: auto;
+	width: calc(100% - 12em);
+	height: calc(80% - 2em);
+	/* background-color: red; */
+	border-style: solid;	
+	border-radius: 25px;
+	border-color: #8ac1db;
+	font-family: 'Lato';
+}
+
+.exercise-info ul{
+	list-style-type: none;
+}
+
+.nutrition-box {
+	margin-top: 1em;
+	margin-left: .25em;
+	float: left;
+	width: calc(58%);
+	height: 11em;
+	background-color: #f1f1f1;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border: 2px solid #3d3d3d;
+	border-radius: 15px;
+	box-shadow: 1px 2px 4px #3d3d3d;
+}
+
+.nutrition-info {
+	text-align: left;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin: auto;
+	width: calc(100% - 12em);
+	height: calc(80% - 2em);
+	/* background-color: red; */
+	border-style: solid;	
+	border-radius: 25px;
+	border-color:  #8ac1db;
+}
+
+.music-box {
+	text-align: center;
+	margin-top: 1em;
+	margin-right: .25em;
+	float: right;
+	width: calc(38%);
+	height: 24.5em;
+	padding-top: .5em;
+	padding-bottom: .5em;	
+	background-color: #f1f1f1;
+	border: 2px solid #3d3d3d;
+	border-radius: 15px;
+	box-shadow: 1px 2px 4px #3d3d3d;
+}
+
+.arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+}
+
+.right {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.left {
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+
+/* begin login css c/p */
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+
+header button {
+	position: relative;
+	float: left;
+    background-color: #3bbcd0b5;
+    color: white;
+    padding: 14px 20px;
+    margin: .3em .30em;
+	border: 1px solid #3d3d3d;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 3em;
+	width: auto;
+	box-shadow: 1px 2px 4px #3d3d3d;
+}
+
+header button:hover {
+	opacity: 0.8;
+}
+
+header button:active {
+	border: 2px solid #3d3d3d;
+}
+
+#id01 button {
+	width: 100%;
+}
+
+#id02 button {
+	width: 100%;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+	margin: 24px 0 12px 0;
+	position: relative;
+}
+
+img.avatar {
+	width: 20vh;
+	height: auto;
+	border-radius: 100px; /* maxing this will just make a circle */
+	border: 2px solid #3d3d3d;
+}
+
+.login-user-container {
+	padding: 16px;
+	height: 14em;
+	/* width: 50%; */
+	font-family: 'Lato';
+}
+
+.create-user-container {
+	padding: 16px;
+	height: 18em;
+	/* width: 50%; */
+	font-family: 'Lato';
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(190, 49, 49);
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+}
+/* end login css c/p */

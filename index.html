@@ -1,0 +1,190 @@
+<!-- 
+	To Do:
+- Housekeeping
+- Correct login button placement
+- add create user button which mimics login
+- link to our email at footer
+-->
+
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+	<title>Exercise for all!</title>
+	<!-- favicon here -->
+	<link rel="icon" href="">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="javascript/manage_users.js"></script>
+	<script src="javascript/weather.js"></script>
+	<script src="javascript/spotify.js"></script>
+</head>
+
+<body>
+
+<header id="uppermost-header">
+	<!-- ~~~~~~~~~~~~~~~~~~~ begin login ~~~~~~~~~~~~~~~~~~~ -->
+	<div class="login-btn">
+
+		<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+		<div id="id01" class="modal">
+			
+			<form class="modal-content animate" action="#" method="post">
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<img src="cactuc_mcjones.jpg" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="login-user-container">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" id="login-username" placeholder="Enter Username" name="uname" required>
+
+					<label for="psw"><b>Password</b></label>
+					<input type="password" id="login-password" placeholder="Enter Password" name="psw" required>
+						
+					<button type="button" onclick="loginUser(document.getElementById('login-username').value, document.getElementById('login-password').value)">Login</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- ~~~~~~~~~~~~~~~~~~~ end login ~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~ begin createuser ~~~~~~~~~~~~~~~~~~~ -->
+	<div class="login-btn">
+
+		<button onclick="document.getElementById('id02').style.display='block'">Create User</button>
+
+		<div id="id02" class="modal">
+			
+			<form class="modal-content animate" action="#" method="post">
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<img src="cactuc_mcjones.jpg" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="create-user-container">
+					<label for="nickname"><b>Nickname</b></label>
+					<input type="text" id="create-user-nickname" placeholder="Enter Nickname" name="nickname" required>
+
+					<label for="uname"><b>Username</b></label>
+					<input type="text" id="create-user-username" placeholder="Enter Username" name="uname" required>
+
+					<label for="psw"><b>Password</b></label>
+					<input type="password" id="create-user-password" placeholder="Enter Password" name="psw" required>
+						
+					<button type="button" onclick="createUser(document.getElementById('create-user-username').value, document.getElementById('create-user-password').value, document.getElementById('create-user-nickname').value)">Create User</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- ~~~~~~~~~~~~~~~~~~~ end createuser ~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<!-- <p class="pagehead-seperator">(c) Accessibility Advocates</p> -->
+</header>
+
+<div class="logo">
+	<img src="site_logo_1.png" alt="Exercise for all!">
+</div>
+	
+<div class="nav-seperator"></div>
+	<!-- bold these elements (!)-->
+	<!-- nest the nav bar in a div so it's easier to control -->
+	<ul class="nav-entries">
+		<li><a href="#profile">Profile</a></li>
+		<li><a href="#exercise">Exercise</a></li>
+		<li><a href="#nutrition">Nutrition</a></li>
+		<li> 
+			<!-- we cover the nav-bar item with a box to format see css file comments for more info -->
+			<a id="weather-drop-btn">Weather<div class="drop-tri-u"></div></a>
+			<div id="weatherBtnCover" class="weather-btn-cover"><p>Weather</p><div class="drop-tri-d"></div></div>
+			<div id="weatherDrop" class="weather-drop-content">
+				<!-- this is where we embed API transaction information from the weather API,
+				see style.css for notes on formatting -->
+			</div>
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- useful to have a seperator formatted exclusively in css -->
+<!-- (!) -->
+<div class="nav-postseperator"></div>
+<!-- (!) -->
+
+<!-- this is our image banner with our catchphrase -->
+<div class="banner">
+	<p class='banner-message'>Where we believe in<br></br></p>
+	<p class='banner-message'>exercise for all</p>
+</div>
+<span></span>
+
+<!-- body tags should be refactored, site body actually starts here -->
+<section class='main-body'>
+		
+	<div class="display-space">
+		<div class="music-box">Music Box</div>
+		<div class="exercise-box"> 
+			<i class="arrow left"></i>
+			Exercise Display
+			<i class="arrow right"></i>
+			<div class="exercise-info">
+				<ul>
+					<li><h1><b>Exercise: Bicep Curls</b></h1></li>
+					<li><a>Start standing with a dumbbell in each hand. Your elbows should rest at your sides and your forearms should extend out in front of your body. 
+						Bring the dumbbells all the way up to your shoulders by bending your elbows. Once at the top, hold for a second by squeezing the muscle.
+						Reverse the curl slowly and repeat.</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="nutrition-box">Nutrition Display
+			<div class="nutrition-info"></div>
+		</div>
+	</div>
+	
+</section>
+
+<footer class="footer">
+		<!-- implement circular arrow and link (!)-->
+		<p>Think we can improve the site? Contact us at AccessibilityAdvocates@Gmail.com!</p>
+</footer>
+<script>
+	// begin weather dropdown js	
+	document.getElementById("weather-drop-btn").onclick = function() {showWeatherWindow()};
+	function showWeatherWindow() {
+		document.getElementById("weatherBtnCover").classList.toggle("show");
+		document.getElementById("weatherDrop").classList.toggle("show");
+		populateWeatherInformation();
+		// add animations here
+	}
+	
+	document.getElementById("weatherBtnCover").onclick = function() {hideWeatherWindow()};
+	function hideWeatherWindow() {
+		document.getElementById("weatherBtnCover").classList.toggle("show");
+		document.getElementById("weatherDrop").classList.toggle("show");
+	
+	}
+	// end weather dropdown js
+	
+	// begin login button popup js	
+	// Get the modal
+	
+	var modal = document.getElementById('id01');
+	var modal2 = document.getElementById('id02');
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+			if (event.target == modal) {
+					modal.style.display = "none";
+			} else if (event.target == modal2) {
+				modal.style.display = "none";
+			}
+	}
+	// end login button popup js
+	
+</script>
+</body>
+</html>
