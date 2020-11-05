@@ -14,6 +14,7 @@
 	<!-- favicon here -->
 	<link rel="icon" href="">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="javascript/manage_users.js"></script>
 	<script src="javascript/weather.js"></script>
 	<script src="javascript/spotify.js"></script>
@@ -128,8 +129,14 @@
 	<div class="display-space">
 		<div class="music-box">Music Box
 		<h1>This is an example of the Authorization Code flow</h1>
-		<a href="authorize.html">Log in with Spotify</a>
-		<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<button id="spotify" class="submit-button" >Login with spotify</button>
+		<script type= "text/javascript">
+			document.getElementById("spotify").onclick = function () {
+				document.getElementById('spotify').style.visibility = 'hidden';
+        		location.href = "authorize.html";
+    		};
+		</script>
+		<!--<a href="authorize.html">Log in with Spotify</a> -->
 		<script type="text/javascript" src= "javascript/spotify.js"></script>
 		</div>
 		<div class="exercise-box"> 
