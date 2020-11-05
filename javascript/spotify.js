@@ -26,7 +26,7 @@ function spotify() {
         body: JSON.stringify(params)
     };
 
-    fetch(`https://accounts.spotify.com/api/token`, apiRequest)
+    fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/api/token`, apiRequest)
         .then(apiResponse => {
             console.log(apiResponse)
         })
