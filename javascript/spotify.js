@@ -23,7 +23,7 @@ function spotify() {
             'Authorization': 'Basic ' + encoded,
             'Accept':'application/json'
         },
-        body: param
+        body: param,
     };
 
     fetch(`https://accounts.spotify.com/api/token`, apiRequest)
