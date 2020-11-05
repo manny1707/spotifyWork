@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+/*$( document ).ready(function() {
     console.log( 'script.js ready!' );
     console.log('version 6')
 
@@ -45,7 +45,7 @@ $( document ).ready(function() {
       }
   });
 
-});
+});*/
 
 function spotify() {
     console.log(window.location);
