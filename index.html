@@ -132,8 +132,9 @@
 		<button id="spotify" class="submit-button" >Login with spotify</button>
 		<script type= "text/javascript">
 			document.getElementById("spotify").onclick = function () {
-				document.getElementById('spotify').style.visibility = 'hidden';
-        		location.href = "authorize.html";
+				let spotifyButton = document.getElementById('spotify');
+				location.href = "authorize.html";
+				spotifyButton.remove();
     		};
 		</script>
 		<!--<a href="authorize.html">Log in with Spotify</a> -->
