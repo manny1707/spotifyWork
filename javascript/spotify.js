@@ -48,7 +48,7 @@
 });*/
 
 function spotify() {
-    console.log(window.location.search.substr(6));
+    console.log(window.location.search.substr(6, window.location.search.length-6));
 }
 
 spotify();
