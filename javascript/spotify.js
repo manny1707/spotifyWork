@@ -19,7 +19,8 @@ function spotify() {
             'Content-Type' : "application/x-www-form-urlencoded",
             'Authorization': 'Basic ' + encoded
         },
-        body: params
+        body: params,
+        JSON: true
     };
 
     fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/api/token`, apiRequest)
