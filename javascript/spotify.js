@@ -13,7 +13,7 @@ function spotify() {
 
 
     let apiRequest = {
-        method: 'POST',
+        method: 'post',
         headers: {
             'Content-Type' : "application/x-www-form-urlencoded",
             'Authorization': 'Basic ' + encoded
