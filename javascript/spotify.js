@@ -3,10 +3,6 @@ var codeForAuth = null
 function spotify() {
     codeForAuth = window.location.search.substr(6, window.location.search.length-6);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
-    /*let param = new FormData();
-    param.append('grant_type', 'client_credentials');
-    param.append('code', codeForAuth);
-    param.append('redirect_uri', redirect);*/
     let params = { 
         grant_type : "authorization_code", 
         code: codeForAuth, 
@@ -20,9 +16,9 @@ function spotify() {
         method: 'POST',
         headers: {
             'Content-Type' : "application/x-www-form-urlencoded",
-            'Authorization': 'Basic ' + encoded,
+            'Authorization': 'Basic ' + encoded
         },
-        body: JSON.stringify(params)
+        body: params
     };
 
     fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/api/token`, apiRequest)
