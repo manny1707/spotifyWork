@@ -1,13 +1,11 @@
-var codeForAuth = null
+var accessToken = null
 
 function spotify() {
-    //codeForAuth = window.location.search.substr(6, window.location.search.length-6);
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
 
-    /* 13 because that bypasses 'access_token' string */
-    access_token = hash.substring(13, accessString);
-    console.log("Access Token: " + access_token);
+    accessToken = hash.substring(13, accessString);
+    console.log("Access Token: " + accessToken);
     //console.log(codeForAuth);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
     let params = { 
@@ -18,7 +16,16 @@ function spotify() {
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
 
+    $.ajax({
+        url: 'https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function(response) {
+            console.log(response);
+        }
 
+    /*
     let apiRequest = {
         method: 'POST',
         headers: {
