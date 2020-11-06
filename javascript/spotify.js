@@ -20,7 +20,8 @@ function spotify() {
 
     fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
         .then(apiResponse => {
-            console.log(JSON.stringify(apiResponse))
+            console.log(here)
+            console.log(apiResponse)
         })
         .catch(error => console.log(error));
 
