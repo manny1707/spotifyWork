@@ -16,6 +16,16 @@ function spotify() {
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
 
+    
+    $.ajax({
+        url: 'https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function(response) {
+            console.log(response)
+        }
+    })
 
     /*
     let apiRequest = {
@@ -44,13 +54,3 @@ function spotify() {
 
 
 spotify();
-
-$.ajax({
-    url: 'https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me',
-    headers: {
-        'Authorization': 'Bearer ' + accessToken
-    },
-    success: function(response) {
-        console.log(response)
-    }
-})
