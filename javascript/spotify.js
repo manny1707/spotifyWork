@@ -1,9 +1,14 @@
 var codeForAuth = null
 
 function spotify() {
-    codeForAuth = window.location.search.substr(6, window.location.search.length-6);
-    console.log(window.location.search);
-    console.log(codeForAuth);
+    //codeForAuth = window.location.search.substr(6, window.location.search.length-6);
+    var hash = window.location.hash.substring(1);
+    var accessString = hash.indexOf("&");
+
+    /* 13 because that bypasses 'access_token' string */
+    access_token = hash.substring(13, accessString);
+    console.log("Access Token: " + access_token);
+    //console.log(codeForAuth);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
     let params = { 
         "grant_type" : "authorization_code", 
