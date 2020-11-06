@@ -2,6 +2,7 @@ var codeForAuth = null
 
 function spotify() {
     codeForAuth = window.location.search.substr(6, window.location.search.length-6);
+    console.log(codeForAuth);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
     let params = { 
         grant_type : "authorization_code", 
@@ -13,7 +14,7 @@ function spotify() {
 
 
     let apiRequest = {
-        method: 'post',
+        method: 'POST',
         headers: {
             'Content-Type' : "application/x-www-form-urlencoded",
             'Authorization': 'Basic ' + encoded
@@ -21,7 +22,7 @@ function spotify() {
         body: JSON.stringify(params)
     };
 
-    fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/api/token`, apiRequest)
+    fetch(`http://cors-anywhere.herokuapp.com/accounts.spotify.com/api/token`, apiRequest)
         .then(apiResponse => {
             console.log(apiResponse)
         })
