@@ -2,6 +2,7 @@ var codeForAuth = null
 
 function spotify() {
     codeForAuth = window.location.search.substr(6, window.location.search.length-6);
+    console.log(window.location.search);
     console.log(codeForAuth);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
     let params = { 
