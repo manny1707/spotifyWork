@@ -5,11 +5,9 @@ function spotify() {
     console.log(codeForAuth);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
     let params = { 
-        grant_type : "authorization_code", 
-        code: codeForAuth, 
-        redirect_uri: redirect,
-        client_id : '7715989104f9481bb709eb42822290e1',
-        client_secret : '4c9d8908ed2b49d89bb7b7c890d88166'
+        "grant_type" : "authorization_code", 
+        "code" : codeForAuth, 
+        "redirect_uri" : redirect
     };
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
@@ -19,6 +17,7 @@ function spotify() {
         method: 'POST',
         headers: {
             'Content-Type' : "application/x-www-form-urlencoded",
+            'Authorization': 'Basic ' + encoded
         },
         body: JSON.stringify(params)
     };
