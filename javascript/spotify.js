@@ -22,7 +22,7 @@ function spotify() {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function(response) {
-            console.log(response);
+            console.log(response)
         }
 
     /*
