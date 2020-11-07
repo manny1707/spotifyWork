@@ -18,12 +18,11 @@ function spotify() {
         },
     };
 
-    fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
-        .then(apiResponse => {
-            console.log("here");
-            console.log(apiResponse);
-        })
-        .catch(error => console.log(error));
+    const result = await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest);
+
+    const data = await JSON.result();
+
+    console.log(data);
 
     
     /*fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&response_type=code&redirect_uri=https%3A%2F%2Fwww.exabilityapp.com&scope=user-read-private%20user-read-email&state=34fFs29kd09`, apiRequest)
