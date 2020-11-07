@@ -8,26 +8,22 @@ function spotify() {
     console.log("Access Token: " + accessToken);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
 
-    var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY=";
+    var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
 
     
-    /*let apiRequest = {
+    let apiRequest = {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + accessToken
         },
-    };*/
+    };
 
-    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, {
-        method: 'GET',
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        },
-    });
-
-    const data = result.json();
-
-    console.log(data);
+    const result = await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
+        .then(apiResponse => {
+            result = apiResponse.json()
+            console.log(result);
+        })
+        .catch(error => console.log(error));
 
     
     /*fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&response_type=code&redirect_uri=https%3A%2F%2Fwww.exabilityapp.com&scope=user-read-private%20user-read-email&state=34fFs29kd09`, apiRequest)
