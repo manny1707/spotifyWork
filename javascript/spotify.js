@@ -25,7 +25,7 @@ function spotify() {
         },
     });
 
-    const data = await JSON.result();
+    const data = JSON.result();
 
     console.log(data);
 
