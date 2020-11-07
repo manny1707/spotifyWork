@@ -11,14 +11,19 @@ function spotify() {
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
 
     
-    let apiRequest = {
+    /*let apiRequest = {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + accessToken
         },
-    };
+    };*/
 
-    const result = await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
+    const result = await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+    });
 
     const data = await JSON.result();
 
