@@ -18,7 +18,7 @@ function spotify() {
         },
     };
 
-    const result = await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
+    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
         .then(apiResponse => {
             result = apiResponse.json()
             console.log(result);
