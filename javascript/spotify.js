@@ -8,7 +8,7 @@ function spotify() {
     console.log("Access Token: " + accessToken);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
 
-    var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
+    var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY=";
 
     
     /*let apiRequest = {
