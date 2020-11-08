@@ -14,16 +14,17 @@ function spotify() {
     let apiRequest = {
         method: 'GET',
         headers: {
-            "Access-Control-Allow-Origin" : "*", 
-            "Access-Control-Allow-Credentials" : true, 
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + accessToken
         },
     };
 
-    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
-        .then(apiResponse => {
+    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest);
+
+    const data = await result.json();
+    console.log(data);
+        /*.then(apiResponse => {
             console.log(apiResponse.json().then(
                 data => { console.log(data) }
             ));
