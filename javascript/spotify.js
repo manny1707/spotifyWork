@@ -25,6 +25,7 @@ async function spotify() {
             const data = apiResponse.json();
             console.log(apiResponse);
             console.log(data);
+            console.log(data.item);
             console.log(data.result);
         })
         .catch(error => console.log(error));
