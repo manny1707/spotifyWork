@@ -26,9 +26,6 @@ async function spotify() {
             console.log(apiResponse);
             console.log(data);
             console.log(data.result);
-            console.log(data.result.item);
-            console.log(data.result.item.album);
-            console.log(data.result.item.album.name);
         })
         .catch(error => console.log(error));
 
