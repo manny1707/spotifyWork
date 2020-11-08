@@ -20,7 +20,7 @@ async function spotify() {
         },
     };
 
-    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest);
+    const result = await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest);
 
     const data = await result.json();
     console.log(data);
