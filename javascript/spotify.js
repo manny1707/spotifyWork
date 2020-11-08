@@ -18,10 +18,10 @@ function spotify() {
         },
     };
 
-    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing`, apiRequest)
+    const result = fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then(apiResponse => {
             console.log(apiResponse.json().then(
-                (data) => { console.log(data) }
+                data => { console.log(data) }
             ));
         })
         .catch(error => console.log(error));
