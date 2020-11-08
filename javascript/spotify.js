@@ -1,6 +1,6 @@
 var accessToken = null
 
-function spotify() {
+async function spotify() {
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
 
