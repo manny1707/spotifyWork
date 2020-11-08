@@ -14,6 +14,8 @@ function spotify() {
     let apiRequest = {
         method: 'GET',
         headers: {
+            "Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Credentials" : true, 
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + accessToken
