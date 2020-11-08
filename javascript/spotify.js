@@ -22,7 +22,7 @@ async function spotify() {
 
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then(apiResponse => {
-            const data = JSON.parse(apiResponse.body);
+            const data = JSON.parse(apiResponse);
             console.log(data.context);
             console.log(apiResponse);
             console.log(apiResponse.json);
