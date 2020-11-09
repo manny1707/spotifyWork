@@ -1,11 +1,22 @@
 var accessToken = null
 
+function Redirect() {
+    window.location.replace = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-read-email&response_type=token';
+ }
+
 async function spotify() {
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
 
+
+
     accessToken = hash.substring(13, accessString);
-    console.log("Access Token: " + accessToken);
+
+    
+    document.cookie = `Access-Token=${accessToken}`; 
+
+
+    console.log("Access_Token: " + accessToken);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
