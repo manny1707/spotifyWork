@@ -46,8 +46,8 @@ accessToken = hash.substring(13, accessString);
 document.cookie = `Access-Token=${accessToken}`; 
 
 if (accessToken != null){
-    document.getElementById('spotifyStatement').style.visibility='hidden';
-    document.getElementById('spotifyButton').style.visibility='hidden';
+    $('#spotifyStatement').hide();
+    $('#spotifyButton').hide();
     spotify();
 }
 
