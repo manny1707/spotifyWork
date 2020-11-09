@@ -16,6 +16,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="./javascript/manage_users.js"></script>
 	<script src="javascript/weather.js"></script>
+	<script src="javascript/authorize.js"></script>
+	<script src="javascript/spotify.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body id="pageBody">
@@ -186,7 +189,18 @@
 <section class='main-body'>
 		
 	<div class="display-space">
-		<div class="music-box">My Music</div>
+		<div class="music-box">My Music
+		<h1>This is an example of the Authorization Code flow</h1>
+		<button id="spotify" class="submit-button" >Login with spotify</button>
+		<script type= "text/javascript">
+			document.getElementById("spotify").onclick = function () {
+				let spotifyButton = document.getElementById('spotify');
+				location.href = "authorize.html";
+				spotifyButton.remove();
+    		};
+		</script>
+		</div>
+		
 		<div class="exercise-box"> 
 			<i class="nav-button-left" id="exercise-left">
 				<i class="arrow-left"></i>
