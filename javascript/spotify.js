@@ -25,9 +25,8 @@ async function spotify() {
         .then(apiResponse => {
             const response = apiResponse
             console.log(response);
-            console.log(response.context);
             console.log(response.item);
-            console.log(response.context.item);
+            console.log(response.item.name);
         })
         .catch(error => console.log(error));
 
