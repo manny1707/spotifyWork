@@ -5,8 +5,6 @@ function Redirect() {
 }
 
 async function spotify() {
-
-
     console.log("Access_Token: " + accessToken);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
 
@@ -29,15 +27,17 @@ async function spotify() {
             console.log(response);
             console.log(response.item);
             console.log(response.item.name);
+            const id = response.item.id;
+            console.log(response.item.id);
+            let src_str = `https://open.spotify.com/embed/track/${id}`;
+            console.log(`src_str ${src_str}`);
+            let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+            let parent_div = $('#music-box');
+            parent_div.append(iframe);
         })
         .catch(error => console.log(error));
 
     
-    /*fetch(`https://cors-anywhere.herokuapp.com/accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&response_type=code&redirect_uri=https%3A%2F%2Fwww.exabilityapp.com&scope=user-read-private%20user-read-email&state=34fFs29kd09`, apiRequest)
-        .then(apiResponse => {
-            console.log(apiResponse)
-        })
-        .catch(error => console.log(error));*/
 }
 
 var hash = window.location.hash.substring(1);
