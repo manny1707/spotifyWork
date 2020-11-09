@@ -47,7 +47,7 @@ document.cookie = `Access-Token=${accessToken}`;
 
 if (accessToken != null){
     document.getElementById('spotifyStatement').style.visibility='hidden';
-    document.getElementById('Button').style.visibility='hidden';
+    document.getElementById('spotifyButton').style.visibility='hidden';
     spotify();
 }
 
