@@ -22,11 +22,13 @@ async function spotify() {
 
     /*await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)*/
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/search?q=dance+off&type=track`, apiRequest)
+        .then (result => result.json())
         .then(apiResponse => {
             console.log(' ');
             console.log(' ');
             console.log('Got data back');
             // Let's console what gets returned for our search
+            console.log(apiResponse);
             console.log(JSON.stringify(apiResponse));
             // Example: Extract the id of the song from the data object
             let id = apiResponse.tracks.items[0].id;
