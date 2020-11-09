@@ -5,9 +5,9 @@ function Redirect() {
 }
 
 async function spotify() {
+
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
-
 
 
     accessToken = hash.substring(13, accessString);
@@ -49,5 +49,8 @@ async function spotify() {
         .catch(error => console.log(error));*/
 }
 
-
-spotify();
+if (accessToken != null){
+    document.getElementById('spotifyStatement').style.visibility='hidden';
+    document.getElementById('Button').style.visibility='hidden';
+    spotify();
+}
