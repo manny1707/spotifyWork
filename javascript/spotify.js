@@ -20,8 +20,7 @@ async function spotify() {
         },
     };
 
-    /*await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)*/
-    await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/search?q=dance+off&type=track`, apiRequest)
+    await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then (result => result.json())
         .then(apiResponse => {
             const response = apiResponse
