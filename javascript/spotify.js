@@ -24,29 +24,11 @@ async function spotify() {
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/search?q=dance+off&type=track`, apiRequest)
         .then (result => result.json())
         .then(apiResponse => {
-            console.log(' ');
-            console.log(' ');
-            console.log('Got data back');
-            // Let's console what gets returned for our search
-            console.log(apiResponse);
-            console.log(JSON.stringify(apiResponse));
-            // Example: Extract the id of the song from the data object
-            let id = apiResponse.tracks.items[0].id;
-            console.log(' ');
-            console.log(`id ${id}`); ////id 1TEL6MlSSVLSdhOSddidlJ
-            // Constructing a iframe to embed a song
-            let src_str = `https://open.spotify.com/embed/track/${id}`;
-            console.log(`src_str ${src_str}`);
-            let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
-            let parent_div = $('#music-box');
-            parent_div.append(iframe);
-            /*
-            const data = apiResponse.json();
-            const respone = JSON.stringify(apiResponse);
-            console.log(respone);
-            console.log(apiResponse);
-            console.log(data);
-            console.log(data.item);*/
+            const response = apiResponse
+            console.log(response);
+            console.log(response.context);
+            console.log(response.item);
+            console.log(response.context.item);
         })
         .catch(error => console.log(error));
 
