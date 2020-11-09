@@ -20,14 +20,31 @@ async function spotify() {
         },
     };
 
-    await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
+    /*await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)*/
+    await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/search?q=dance+off&type=track`, apiRequest)
         .then(apiResponse => {
+            console.log(' ');
+            console.log(' ');
+            console.log('Got data back');
+            // Let's console what gets returned for our search
+            console.log(JSON.stringify(data));
+            // Example: Extract the id of the song from the data object
+            let id = data.tracks.items[0].id;
+            console.log(' ');
+            console.log(`id ${id}`); ////id 1TEL6MlSSVLSdhOSddidlJ
+            // Constructing a iframe to embed a song
+            let src_str = `https://open.spotify.com/embed/track/${id}`;
+            console.log(`src_str ${src_str}`);
+            let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+            let parent_div = $('#music-box');
+            parent_div.append(iframe);
+            /*
             const data = apiResponse.json();
             const respone = JSON.stringify(apiResponse);
             console.log(respone);
             console.log(apiResponse);
             console.log(data);
-            console.log(data.item);
+            console.log(data.item);*/
         })
         .catch(error => console.log(error));
 
