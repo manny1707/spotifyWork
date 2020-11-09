@@ -27,9 +27,9 @@ async function spotify() {
             console.log(' ');
             console.log('Got data back');
             // Let's console what gets returned for our search
-            console.log(JSON.stringify(data));
+            console.log(JSON.stringify(apiResponse));
             // Example: Extract the id of the song from the data object
-            let id = data.tracks.items[0].id;
+            let id = apiResponse.tracks.items[0].id;
             console.log(' ');
             console.log(`id ${id}`); ////id 1TEL6MlSSVLSdhOSddidlJ
             // Constructing a iframe to embed a song
