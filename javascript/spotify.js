@@ -6,15 +6,6 @@ function Redirect() {
 
 async function spotify() {
 
-    var hash = window.location.hash.substring(1);
-    var accessString = hash.indexOf("&");
-
-
-    accessToken = hash.substring(13, accessString);
-
-    
-    document.cookie = `Access-Token=${accessToken}`; 
-
 
     console.log("Access_Token: " + accessToken);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
@@ -49,8 +40,14 @@ async function spotify() {
         .catch(error => console.log(error));*/
 }
 
+var hash = window.location.hash.substring(1);
+var accessString = hash.indexOf("&");
+accessToken = hash.substring(13, accessString);
+document.cookie = `Access-Token=${accessToken}`; 
+
 if (accessToken != null){
     document.getElementById('spotifyStatement').style.visibility='hidden';
     document.getElementById('Button').style.visibility='hidden';
     spotify();
 }
+
