@@ -13,51 +13,15 @@ var weatherImgId = null;
 var forecast = null;
 
 let configureWeatherDisplay = () => {
-    if (document.cookie == "") {
-        // disabled for debug and deployment(!)
-        navigator.geolocation.getCurrentPosition(getWeatherInformation, error, locationOptions);
-    }
-    else {
-        getWeatherInformation(null);
-    }
+    // (!)disabling location services so we can reload quicker in UI implementation(!)
+    // navigator.geolocation.getCurrentPosition(getWeatherInformation, error, locationOptions);
 }
 
 window.addEventListener('load', configureWeatherDisplay);
 
 let getWeatherInformation = async (location) => {
-    let userLatitude = null;
-    let userLongitude = null;
-
-    if (location != null) {
-        userLatitude = location.coords.latitude;
-        userLongitude = location.coords.longitude;
-        document.cookie = `user-latitude=${userLatitude}`; 
-        document.cookie = `user-longitude=${userLongitude}`;
-
-        let apiHeadersForLoc = new Headers();
-
-        apiHeadersForLoc.append('Content-Type', 'application/json');
-
-        let apiRequestForLoc = {
-            method: 'GET',
-            headers: apiHeadersForLoc,
-            redirect: 'follow'
-        };
-
-        await fetch(`https://cors-anywhere.herokuapp.com/us1.locationiq.com/v1/reverse.php?key=pk.d8d83abb383b87971c65270e405f09ea&lat=${userLatitude}&lon=${userLongitude}&format=json`, apiRequestForLoc)
-        .then(apiResponse => apiResponse.text())
-        .then(apiResult => {
-            locationResults = JSON.parse(apiResult);
-            document.cookie = `user-city=${locationResults.address.city}`;
-            document.cookie = `user-state=${locationResults.address.state}`;
-        })
-        .catch(error => console.log(error));
-    }
-    else {
-        let userLocation = document.cookie;
-        userLatitude = userLocation.split('; ').find(element => element.startsWith('user-latitude')).split('=')[1];
-        userLongitude = userLocation.split('; ').find(element => element.startsWith('user-longitude')).split('=')[1];
-    }
+    let userLatitude = location.coords.latitude;
+    let userLongitude = location.coords.longitude; 
     
     let apiHeaders = new Headers();
     let apiBody = null;
@@ -73,7 +37,6 @@ let getWeatherInformation = async (location) => {
     await fetch(`https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${userLatitude}&lon=${userLongitude}&appid=7f176f6884d67252c457f739915660e4`, apiRequest)
         .then(apiResponse => apiResponse.text())
         .then(apiResult => {
-            console.log(apiResult);
             weatherResults = JSON.parse(apiResult);
             temperatureKelvin = weatherResults.main.temp;
             temperatureFahrenheit = (temperatureKelvin - 273.15) * 9/5 + 32;
@@ -82,7 +45,6 @@ let getWeatherInformation = async (location) => {
             windSpeed = weatherResults.wind.speed;
             weatherImgId = weatherResults.weather[0].icon;
             forecast = weatherResults.weather[0].main;
-            //document.cookie = `user-city=${weatherResults.name}`;
         })
         .catch(error => console.log(error));
 }

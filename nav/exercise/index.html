@@ -1,0 +1,200 @@
+<!-- 
+	To Do:
+- Housekeeping
+- Correct login button placement
+- add create user button which mimics login
+- link to our email at footer
+-->
+
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+	<title>Exercise for all!</title>
+	<!-- favicon here -->
+	<link rel="icon" href="">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="javascript/manage_users.js"></script>
+	<script src="../../javascript/weather.js"></script>
+</head>
+
+<body>
+
+<header id="uppermost-header">
+	<!-- <script src="../../javascript/login_buttons.js"></script> -->
+	<script src="javascript/login_buttons.js"></script>
+	<!-- ~~~~~~~~~~~~~~~~~~~ begin login ~~~~~~~~~~~~~~~~~~~ -->
+	<!-- <div class="login">
+		<button class="login-btn" onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+		<div id="id01" class="modal">
+			
+			<form class="modal-content animate" action="#" method="post">
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<img src="cactuc_mcjones.jpg" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="login-user-container">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" id="login-username" placeholder="Enter Username" name="uname" required>
+
+					<label for="psw"><b>Password</b></label>
+					<input type="password" id="login-password" placeholder="Enter Password" name="psw" required>
+						
+					<button type="button" onclick="loginUser(document.getElementById('login-username').value, document.getElementById('login-password').value)">Login</button>
+				</div>
+			</form>
+		</div>
+
+	</div> -->
+	<!-- ~~~~~~~~~~~~~~~~~~~ end login ~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~ begin createuser ~~~~~~~~~~~~~~~~~~~ -->
+	<!-- <div class="login">
+		<button onclick="document.getElementById('id02').style.display='block'">Create User</button>
+
+		<div id="id02" class="modal">
+			
+			<form class="modal-content animate" action="#" method="post">
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<img src="cactuc_mcjones.jpg" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="create-user-container">
+					<label for="nickname"><b>Nickname</b></label>
+					<input type="text" id="create-user-nickname" placeholder="Enter Nickname" name="nickname" required>
+
+					<label for="uname"><b>Username</b></label>
+					<input type="text" id="create-user-username" placeholder="Enter Username" name="uname" required>
+
+					<label for="psw"><b>Password</b></label>
+					<input type="password" id="create-user-password" placeholder="Enter Password" name="psw" required>
+						
+					<button type="button" onclick="createUser(document.getElementById('create-user-username').value, document.getElementById('create-user-password').value, document.getElementById('create-user-nickname').value)">Create User</button>
+				</div>
+			</form>
+		</div>
+
+	</div> -->
+	<!-- ~~~~~~~~~~~~~~~~~~~ end createuser ~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<p class="pagehead-seperator">©2020 Accessibility Advocates</p>
+</header>
+
+<div class="logo">
+	<img src="site_logo_1.png" alt="Exercise for all!">
+</div>
+	
+<div class="nav-seperator"></div>
+	<!-- <script src='../../javascript/weather_dropdown.js'></script> -->
+	<script src='javascript/weather_dropdown.js'></script>
+	<!-- bold these elements (!)-->
+	<!-- nest the nav bar in a div so it's easier to control -->
+	<ul class="nav-entries">
+		<li><a href="../../index.html">Home</a></li>
+		<li><a href="../profile/index.html">Profile</a></li>
+		<li><a href="#nutrition">Nutrition</a></li>
+		<li> 
+			<!-- we cover the nav-bar item with a box to format see css file comments for more info -->
+			<a id="weather-drop-btn">Weather<div class="drop-tri-u"></div></a>
+			<div id="weatherBtnCover" class="weather-btn-cover"><p>Weather</p><div class="drop-tri-d"></div></div>
+			<div id="weatherDrop" class="weather-drop-content">
+				<!-- this is where we embed API transaction information from the weather API,
+				see style.css for notes on formatting -->
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="nav-postseperator"><h1>My Exercise Home</h1></div>
+
+<section class='main-body'>
+	<!-- <script src="../../javascript/video_modal.js"></script> -->
+	<!-- <script src="_javascript/video_modal.js"></script> -->
+	<div class="display-space">
+		<div class="exercise-box"> 
+			<div class="exercise-info">
+				<h1 class='exercise-name'><b>Loading...</b></h1></li>
+				<p class='exercise-desc'>Loading...</p>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ begin youtube modal1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!-- this button needs to be appropriately styled in css -->
+				<button id="tBtn1" class="t-button-1">See Tutorial</button>
+				<div id="tModal1" class="t-modal-1">
+					<!-- Modal content -->
+					<div class="t-modal-content-1">
+						<span class="close1">&times;</span>
+						<!-- <p>Insert example youtube thumbnail here</p> -->
+						<iframe class="youtubeVideo" width="480" height="300"
+						src="">
+						</iframe> 
+					</div>
+
+				</div>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ begin youtube modal2 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<button id="addToPlanBtn1" onclick="addExerciseToPlan(1)" class="t-button-2">Add to Workout</button>
+			</div>
+			
+		</div>
+
+		<div class="exercise-box"> 
+			<div class="exercise-info">
+				<h1 class='exercise-name'><b>Loading...</b></h1></li>
+				<p class='exercise-desc'>Loading...</p>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ begin youtube modal1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!-- this button needs to be appropriately styled in css -->
+				<button id="tBtn2" class="t-button-1">See Tutorial</button>
+				<div id="tModal2" class="t-modal-1">
+					<!-- Modal content -->
+					<div class="t-modal-content-1">
+						<span class="close1">&times;</span>
+						<!-- <p>Insert example youtube thumbnail here</p> -->
+						<iframe class="youtubeVideo" width="480" height="300"
+						src="">
+						</iframe> 
+					</div>
+				</div>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ begin youtube modal2 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<button id="addToPlanBtn2" onclick="addExerciseToPlan(2)" class="t-button-2">Add to Workout</button>
+			</div>
+			
+		</div>
+
+		<div class="exercise-box last"> 
+			<div class="exercise-info">
+				<h1 class='exercise-name'><b>Loading...</b></h1></li>
+				<p class='exercise-desc'>Loading...</p>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ begin youtube modal1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!-- this button needs to be appropriately styled in css -->
+				<button id="tBtn3" class="t-button-1">See Tutorial</button>
+				<div id="tModal3" class="t-modal-1">
+					<!-- Modal content -->
+					<div class="t-modal-content-1">
+						<span class="close1">&times;</span>
+						<!-- <p>Insert example youtube thumbnail here</p> -->
+						<iframe class="youtubeVideo" width="480" height="300"
+						src="">
+						</iframe> 
+					</div>
+				</div>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ begin youtube modal2 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<button id="addToPlanBtn3" onclick="addExerciseToPlan(3)" class="t-button-2">Add to Workout</button>
+			</div>
+		</div>
+
+	</div>
+	
+</section>
+
+<footer class="footer">
+		<!-- implement circular arrow and link (!)-->
+		<p>Think we can improve the site? Contact us at AccessibilityAdvocates@Gmail.com!</p>
+</footer>
+<!-- <script src="../../javascript/weather_dropdown.js"></script> -->
+<!-- <script src="../../javascript/login_buttons.js"></script> -->
+
+<script src="../../javascript/weather_dropdown.js"></script>
+<script src="javascript/query_exercises.js"></script>
+</body>
+</html>

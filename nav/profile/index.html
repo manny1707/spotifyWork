@@ -1,0 +1,205 @@
+<!-- 
+	To Do:
+- Housekeeping
+- Correct login button placement
+- add create user button which mimics login
+- link to our email at footer
+-->
+
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+	<title>Exercise for all!</title>
+	<!-- favicon here -->
+	<link rel="icon" href="">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- <script src="../../javascript/manage_users.js"></script> -->
+	<!-- <script src="../../javascript/weather.js"></script> -->
+	<!-- <script src="../../javascript/populate_user_info.js"></script> -->
+
+	<script src="javascript/manage_users.js"></script>
+	<script src="../../javascript/weather.js"></script>
+	<script src="javascript/populate_user_info.js"></script>
+	
+</head>
+
+<body>
+
+<header id="uppermost-header">
+	<script src="local_js/manage_locale.js"></script>
+	<button onclick="updateLocale()" id="testBtn" class="test-btn">Update Profile Attributes</button>	
+	<p class="pagehead-seperator">©2020 Accessibility Advocates</p>
+</header>
+
+<div class="logo">
+	<img src="site_logo_1.png" alt="Exercise for all!">
+</div>
+	
+<div class="nav-seperator"></div>
+	<!-- bold these elements (!)-->
+	<!-- nest the nav bar in a div so it's easier to control -->
+	<ul class="nav-entries">
+		<li><a href="../../index.html">Home</a></li>
+		<li><a href="../exercise/index.html">Exercise</a></li>
+		<li><a href="#nutrition">Nutrition</a></li>
+		<li> 
+			<!-- we cover the nav-bar item with a box to format see css file comments for more info -->
+			<a id="weather-drop-btn">Weather<div class="drop-tri-u"></div></a>
+			<div id="weatherBtnCover" class="weather-btn-cover"><p>Weather</p><div class="drop-tri-d"></div></div>
+			<div id="weatherDrop" class="weather-drop-content">
+				<!-- this is where we embed API transaction information from the weather API,
+				see style.css for notes on formatting -->
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="nav-postseperator"><h1>My Profile</h1></div>
+
+<section class='main-body'>
+	<div class="display-space">
+
+		<div class="welcome-section">
+			<img src="cactuc_mcjones.jpg" alt="Avatar" class="profile-img">
+			<div class="welcome-sig">
+				<h1 class="howdy" id="user-greeting">Loading...</h1>
+				<!-- for some reason this sits above weather even though it's z-index is lower -->
+				<h1 class='set-line-1'>_____________________________________________________________</h1>
+				<h2 class="curr-location" id="user-location">Loading...</h2>
+				<!-- for some reason this sits above weather even though it's z-index is lower -->
+				<h2 class='set-line-2'>_____________________________________________________________</h2>
+			</div>
+		</div>
+		<div class="dropdown-list left">
+			<h1>Exercise</h1>
+
+			<!-- ~~~ Equipment ~~~ -->
+			<div class="equipment">
+				<div class="dropdown-equipment">
+					<button class="dropbtn-equipment">Equipment</button>
+					<div class="dropdown-content-equipment">
+						<a>
+							<label class="container">Equ
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Equ
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Equ
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+					</div>
+				</div>
+
+				<!-- ~~~ Location ~~~ -->
+				<div class="location">
+					<div class="dropdown-location">
+					<button class="dropbtn-location">Location</button>
+					<div class="dropdown-content-location">
+						<a>
+							<label class="container">Indoor
+								<input id="indoorCheck" type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Outdoor
+								<input id="outdoorCheck" type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<!-- <a>
+							<label class="container">Loc
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a> -->
+					</div>
+				</div>
+				<!-- ~~~ Ability ~~~ -->
+				<div class="abilities">
+					<div class="dropdown-abilities">
+					<button class="dropbtn-abilities">Ability</button>
+					<div class="dropdown-content-abilities">
+						<a>
+							<label class="container">Abl
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Abl
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Abl
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+					</div>
+				</div>
+				<!-- ~~~ Goals ~~~ -->
+				<div class="goals">
+					<div class="dropdown-goals">
+					<button class="dropbtn-goals">Goals</button>
+					<div class="dropdown-content-goals">
+						<a>
+							<label class="container">Goa
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Goa
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+						<a>
+							<label class="container">Goa
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- <div class="dropdown-list middle">
+			<h1>Nutrition</h1>
+		</div>
+
+		<div class="dropdown-list right">
+			<h1>Music</h1>
+		</div> -->
+
+	</div>		
+	
+	
+</section>
+
+<footer class="footer">
+		<!-- implement circular arrow and link (!)-->
+		<p>Think we can improve the site? Contact us at AccessibilityAdvocates@Gmail.com!</p>
+</footer>
+<!-- <script src="../../javascript/weather_dropdown.js"></script> -->
+<!-- <script src="../../javascript/login_buttons.js"></script> -->
+<script src="../../javascript/weather_dropdown.js"></script>
+<script src="javascript/login_buttons.js"></script>
+</body>
+</html>

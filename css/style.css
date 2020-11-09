@@ -15,6 +15,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
 /* most of the formatting is in em units not vw/vh so some of those may need to change */
 
 *{
@@ -28,7 +29,6 @@ body {
 }
 
 header {
-	
 	position: relative;
 	top: 1px;
 	background-color: #A5DDD3;
@@ -40,21 +40,24 @@ header {
 }
 
 .pagehead-seperator {
-	/* centers the text in the header */
-	transform: translate(-2%, 75%);
-	font-family: 'Lato' bold #3d3d3d;
+	float: right;
+	font-family: 'Lato';
+	color: #3d3d3d;
 	text-align: right;
 	position: relative;
-	top: 1px;
+	margin-top: 1em;
+	margin-right: 1em
 }
 
 .user-welcome-message {
-	transform: translate(-2%, 75%);
-	font-family: 'Lato' bold #3d3d3d;
-	font-size: 20px;
-	text-align: right;
+	/* font-family: 'Lato', sans-serif; */
+	font-family: 'Oswald', sans-serif;
+	font-style: italic;	
+	color: #3d3d3d;
+	font-size: 24px;
+	text-align: left;
 	position: relative;
-	top: 1px;
+	/* margin: .2em .5em; */
 }
 
 .logo img {
@@ -78,6 +81,7 @@ header {
 	font-family: 'Lato';
 	font-size: 1.25em;
 	/* font-weight: bold; */
+	cursor: pointer;
 }
 
 .nav-entries li{
@@ -91,7 +95,7 @@ header {
 	color: #3d3d3d;
 	padding: 5px 20px;
 	border: 2px solid transparent;
-	transition: 0.8s ease;
+	transition: 0.1s ease;
 	text-shadow: 1px 2px 4px #3d3d3d;
 }
 
@@ -101,35 +105,17 @@ header {
 	border-bottom: 2px solid #3d3d3d;
 	border-left: 2px solid #3d3d3d;
 	border-right: 2px solid #3d3d3d;
-	transition: 0.35s ease;
+	transition: 0.1s ease;
 	padding: .99em;
 	text-shadow: .5px .5px 1px #3d3d3d;
 	/* box-shadow: 1px 2px 4px #3d3d3d; */
 }
 /* end nav bar */
 
-/* begin weather button */
-
-.drop-tri-u {
-	/* dropdown triangle arrow normal position */
-	position: absolute;
-	top: 9px;
-	right: 5px;
-	width: 0;
-	height: 0;
-	border-top: 6px solid transparent;
-	border-right: 12px solid #3d3d3d;
-	border-bottom: 6px solid transparent;
-	transition: 0.35s ease;
-	/* figure out a way to dropshadow this */
-	/* box-shadow: 1px 2px 4px #3d3d3d; */
-}
-
 .nav-postseperator {
 	padding: 2em;
 	background-color: #f0f0f0;
 	background-size: cover;
-
 }
 
 .banner {
@@ -157,16 +143,19 @@ header {
 	position: relative;
 	margin: 50px 0;
 	padding: 35px 0;
-	text-shadow: 2px 2px 4px #000000;
+	/* text-shadow: 2px 2px 4px #000000; */
 	margin: .3em;
 	margin-top: 1em;
 	text-align: center;
 	text-decoration: none;
 	background-color: #C9C8BD;
-  	background-size: cover;
-  	font-weight: 300;
-  	letter-spacing: 0.05em;
-  	color: #F7EDE1;
+	background-size: cover;
+	font-weight: 300;
+	letter-spacing: 0.05em;
+	color: #3d3d3d;
+	border: 2px solid #3d3d3d;
+	border-radius: 5px;
+	
 }
 
 /*
@@ -207,6 +196,23 @@ element without creating distinct classes for each ul element
 
 }
 
+/* begin weather button */
+
+.drop-tri-u {
+	/* dropdown triangle arrow normal position */
+	position: absolute;
+	top: 9px;
+	right: 5px;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-right: 12px solid #3d3d3d;
+	border-bottom: 6px solid transparent;
+	transition: 0.35s ease;
+	/* figure out a way to dropshadow this */
+	/* box-shadow: 1px 2px 4px #3d3d3d; */
+}
+
 .drop-tri-d {
 	/* dropdown triangle arrow deployed position */
 	position: absolute;
@@ -227,6 +233,7 @@ element without creating distinct classes for each ul element
 	/* needs animation */
 	display: none;
 	position: absolute;
+	text-align: center;
 	min-width: 160px;
 	overflow: auto;
 	box-shadow: 2px 8px 16px 0px #3d3d3d;
@@ -260,7 +267,7 @@ element without creating distinct classes for each ul element
 	margin-left: .25em;
 	float: left;
 	width: calc(58%);
-	height: 11em;
+	height: 13em;
 	background-color: #f1f1f1;
 	padding-top: .5em;
 	padding-bottom: .5em;
@@ -276,17 +283,15 @@ element without creating distinct classes for each ul element
 	padding-left: 2em;
 	padding-right: 2em;
 	margin: auto;
-	width: calc(100% - 12em);
-	height: calc(80% - 2em);
+	width: calc(100% - 14em);
+	height: calc(80% - 1em);
 	/* background-color: red; */
 	border-style: solid;	
 	border-radius: 25px;
 	border-color: #8ac1db;
 	font-family: 'Lato';
-}
-
-.exercise-info ul{
-	list-style-type: none;
+	font-size: 0.85em;
+	overflow: auto;
 }
 
 .nutrition-box {
@@ -294,7 +299,7 @@ element without creating distinct classes for each ul element
 	margin-left: .25em;
 	float: left;
 	width: calc(58%);
-	height: 11em;
+	height: 9em;
 	background-color: #f1f1f1;
 	padding-top: .5em;
 	padding-bottom: .5em;
@@ -333,24 +338,102 @@ element without creating distinct classes for each ul element
 	box-shadow: 1px 2px 4px #3d3d3d;
 }
 
-.arrow {
+.nav-button-left {
+	background-color: #A5DDD3;
+	margin-top: 4.5em;	
+	margin-left: 1em;
+	float: left;
+	height: 2em;
+	width: 2em;
+	border: solid black;
+	border-radius: 50%;
+	border: solid black;
+	border-width: 2px;
+	vertical-align: center;
+}
+
+.nav-button-left:hover {
+	background-color: #8ac1db;
+}
+
+.nav-button-right {
+	background-color: #A5DDD3;
+	margin-top: 4.5em;
+	margin-right: 1em;
+	float: right;
+	height: 2em;
+	width: 2em;
+	border: solid black;
+	border-radius: 50%;
+	border: solid black;
+	border-width: 2px;
+	vertical-align: center;
+}
+
+.nav-button-right:hover {
+	background-color: #8ac1db;
+}
+
+.arrow-left {
 	border: solid black;
 	border-width: 0 3px 3px 0;
+	margin-top: .7em;	
+	margin-left: .3em;
 	display: inline-block;
 	padding: 3px;
-}
-
-.right {
-	transform: rotate(-45deg);
-	-webkit-transform: rotate(-45deg);
-}
-
-.left {
+	vertical-align: center;
 	transform: rotate(135deg);
 	-webkit-transform: rotate(135deg);
 }
 
-/* begin login css c/p */
+.arrow-right {
+	border: solid black;
+	border-width: 0px 3px 3px 0px;
+	/* background-color: red; */
+	/* margin-right: 6px; */
+	margin-top: .7em;
+	margin-right: .2em;
+	display: inline-block;
+	padding: 3px;
+	vertical-align: center;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/* mandatory login modal */
+
+.modal-title {
+	font-family: 'Lato';
+	font-weight: 700;
+	font-size: 2.5em;
+	margin-top: 1em;
+	text-align: center;
+}
+.modal-body {
+	font-family: 'Lato';
+	text-align: center;
+	margin: .25em;
+	font-size: 1.3em;
+}
+
+.onload-modal-content {
+	width: 30em;
+	height: 14em;
+	border-radius: 10px;
+	background-color: #fefefe;
+	margin: 10% auto 15% auto;
+	border: 1px solid #888;
+}
+
+.modal-footer {
+	padding-top: .5em;
+	padding-bottom: 3em;
+	padding-right: 3em;
+	padding-left: 4em;
+}
+
+/* login & create user modal */
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
@@ -361,37 +444,57 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-
-header button {
-	position: relative;
-	float: left;
-    background-color: #3bbcd0b5;
-    color: white;
-    padding: 14px 20px;
-    margin: .3em .30em;
+.login,
+.create-user {
+	position: absolute;
+	/* float: center; */
+	background-color: #3bbcd0b5;
+	color: white;
 	border: 1px solid #3d3d3d;
 	border-radius: 5px;
 	cursor: pointer;
 	height: 3em;
-	width: auto;
+	width: 15em;
 	box-shadow: 1px 2px 4px #3d3d3d;
+	margin-top: .5em;
 }
 
-header button:hover {
+.login {
+	position: absolute;
+	float: left;
+	transform: translateX(-15%);
+}
+
+.create-user {
+	position: absolute;
+	float: right;
+	transform: translateX(88%);
+}
+
+.login:hover,
+.create-user:hover {
 	opacity: 0.8;
 }
 
-header button:active {
+.login:active,
+.create-user:active {
 	border: 2px solid #3d3d3d;
 }
 
-#id01 button {
-	width: 100%;
-}
-
+#id01 button,
 #id02 button {
+	position: relative;
 	width: 100%;
+	float: center;
+	/* transform: translateX(0); */ /* make sure this isn't needed accros different platforms */
+	background-color: #3bbcd0b5;
+	color: white;
+	border: 1px solid #3d3d3d;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 3em;
+	width: 100%;
+	box-shadow: 1px 2px 4px #3d3d3d;
 }
 
 /* Center the image and position the close button */
@@ -410,16 +513,16 @@ img.avatar {
 
 .login-user-container {
 	padding: 16px;
-	height: 14em;
-	/* width: 50%; */
+	height: 12em;
 	font-family: 'Lato';
+	font-size: 1em;
 }
 
 .create-user-container {
 	padding: 16px;
-	height: 18em;
-	/* width: 50%; */
+	height: 17em;
 	font-family: 'Lato';
+	font-size: 1em;
 }
 
 span.psw {
@@ -427,7 +530,7 @@ span.psw {
   padding-top: 16px;
 }
 
-/* The Modal (background) */
+/* The general Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -442,15 +545,18 @@ span.psw {
   padding-top: 60px;
 }
 
-/* Modal Content/Box */
+/* general Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+	/* background-color: #fefefe; */
+	background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+	border: 1px solid #888;
+	border-radius: 10px;
+	/* width: 20%; */
+	width: 20em;
 }
 
-/* The Close Button (x) */
+/* The login/create user Close Button (x) */
 .close {
   position: absolute;
   right: 25px;
@@ -466,11 +572,93 @@ span.psw {
   cursor: pointer;
 }
 
-/* Add Zoom Animation */
+/* login/create user Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~ begin tutorial modal ~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* The Modal (background) */
+.t-modal-1 {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .t-modal-content-1 {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close1 {
+	color: #3d3d3d;
+	float: right;
+	font-size: 28px;
+	  font-weight: bold;
+  }
+  
+  .close1:hover,
+  .close1:focus {
+	  /* color: black; */
+	  color: rgb(190, 49, 49);
+	text-decoration: none;
+	  cursor: pointer;
+  }
+  
+  .t-button-1 {
+	  font-family: 'Lato', sans-serif;
+	  text-emphasis: bold;
+	  font-weight: 700;
+	  background-color: #ff0000; /* Green */
+		border: none;
+		color: #f0f0f0;
+	  /* padding: 16px 32px; */
+	  padding: .5em 1em;
+		text-align: center;
+		display: inline-block;
+		font-size: 12px;
+	  /* margin: 4px 2px; */
+	  margin-top: 0.5em;
+	  /* border: 2px solid #FF0000; */
+	  border-radius: 20px;
+		transition-duration: 0.4s;
+	  cursor: pointer;
+	  box-shadow: 1px 2px 4px #3d3d3d;
+  }
+  
+  .t-button-1:hover {
+	  background-color: #f0f0f0;
+	  border: 1px solid #FF0000;
+	  color: #3d3d3d;
+	  box-shadow: 0px 0px 0px #3d3d3d;
+  }
+  
+  .t-button-1:active {
+	  /* idk why the origin button border is showing here */
+	  border: 0px;
+	  box-shadow: 0px 0px 0px #3d3d3d;
+  }
+  
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~ end tutorial modal ~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  
 
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
@@ -489,4 +677,3 @@ span.psw {
      float: none;
   }
 }
-/* end login css c/p */

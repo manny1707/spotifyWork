@@ -44,8 +44,7 @@ let loginUser = async (username, password) => {
             if (statusCode == 200) {
                 alert('Successfully logged in!');
                 let responseBody = JSON.parse(apiResult).body;
-                //localStorage.setItem('username', responseBody.username);
-                document.cookie = `username=${responseBody.username}`;
+                sessionStorage.setItem('username', responseBody.username);
                 document.getElementById('id01').style.display='none';
                 let loginAndCreateButtons = document.getElementsByClassName('login-btn');
                 loginAndCreateButtons[0].style.display='none';
@@ -59,8 +58,6 @@ let loginUser = async (username, password) => {
                 welcomeMessage.setAttribute('class', 'user-welcome-message');
 
                 uppermostHeader.appendChild(welcomeMessage);
-
-                populateExerciseInfo();
             }
             else if (statusCode == 401) {
                 alert('Incorrect password!');
