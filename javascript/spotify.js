@@ -119,7 +119,7 @@ else {
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 console.log(accessToken);
-if (accessToken != null && accessToken > 5){
+if (accessToken != null && accessToken.length > 5){
     $(".spotifyStatement").hide();
     $(".spotifyButton").hide();
     console.log("BUTTONS SHOULD BE GONE");
