@@ -62,7 +62,7 @@ async function playSong(){
             'Authorization': 'Bearer ' + accessToken
         },
     };
-    await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/play', apiPlayRequest)
+    fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/play', apiPlayRequest)
         /*.then(result => result.json())
         .then(apiResponse=>{
 
@@ -81,7 +81,7 @@ async function pauseSong(){
         },
     };
 
-    await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/pause', apiPauseRequest)
+    fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/pause', apiPauseRequest)
         /*.then(result => result.json())
         .then(apiResponse=>{
 
