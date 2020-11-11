@@ -94,7 +94,11 @@ var accessString = hash.indexOf("&");
 accessToken = hash.substring(13, accessString);
 console.log(accessToken);
 console.log(cookies.split('; '));
+console.log(cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1])
 
+if (accessToken != null){
+    document.cookie = `Access-Token=${accessToken}`; 
+}
 
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
