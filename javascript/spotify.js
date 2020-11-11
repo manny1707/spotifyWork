@@ -34,7 +34,7 @@ async function spotify() {
             isPlaying = response.is_playing;
             currentSongName = response.item.name;
             currentSongId = response.item.id;
-            currentSongPicture = response.item.album.images[0].url
+            currentSongPicture = response.item.album.images[2].url
             console.log(isPlaying);
             console.log(currentSongName);
             console.log(currentSongId);
@@ -104,7 +104,7 @@ console.log(cookies.split('; '));
 if (accessToken != null){
     $('.spotifyStatement').hide();
     $('.spotifyButton').hide();
-    document.cookie = `Access-Token=${accessToken}`; 
+    document.cookie = `Access-Token=${accessToken}; path =/index.html`; 
     spotify();
 }
 
