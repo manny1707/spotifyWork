@@ -93,9 +93,7 @@ accessToken = hash.substring(13, accessString);
 document.cookie = `Access-Token=${accessToken}`; 
 console.log("Access_Token: " + accessToken);
 
-var cookies = document.cookie;
-console.log(cookies.split('; '));
-//console.log(cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1])
+console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1])
 
 
 
