@@ -1,5 +1,7 @@
 var accessToken = null;
-var currentSong = null;
+var currentSongName = null;
+var currentSongPicture = null;
+var currentSongId = null;
 var isPlaying = null;
 
 function Redirect() {
@@ -22,17 +24,19 @@ async function spotify() {
         },
     };
 
-    var currentSong = null;
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then (result => result.json())
         .then(apiResponse => {
-            console.log(apiResponse);
-            const response = apiResponse
+            const response = apiResponse;
             console.log(response);
             console.log(response.item);
             console.log(response.item.name);
-            currentSong = response.item.album.id;
-            console.log(response.item.album.id);
+            currentSongName = response.item.name;
+            currentSongId = response.item.id;
+            currentSongPicture = response.item.album.images[0].url
+            console.log(currentSongName);
+            console.log(currentSongId);
+            console.log(currentSongPicture);
             let src_str = `https://open.spotify.com/embed/album/${currentSong}`;
             console.log(`src_str ${src_str}`);
             let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
