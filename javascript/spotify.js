@@ -38,9 +38,13 @@ async function spotify() {
             console.log(currentSongId);
             console.log(currentSongPicture);
             let image = `<img src=${currentSongPicture}>`
+            let name = `<p>${currentSongName}</p>`
+            let play = `<p>${currentSongName}</p>`
             //let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
             let parent_div = $('.music-box');
             parent_div.append(image);
+            parent_div.append(name);
+            parent_div.append(play);
 
             //somewhere here we populate front end
         })
@@ -115,7 +119,7 @@ else {
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 console.log(accessToken);
-if (accessToken != null){
+if (accessToken != null && accessToken > 5){
     $(".spotifyStatement").hide();
     $(".spotifyButton").hide();
     console.log("BUTTONS SHOULD BE GONE");
