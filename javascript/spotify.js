@@ -103,6 +103,7 @@ else if (document.cookie.split('; ').find(element => element.startsWith('Access-
     console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
 }
 else {
+    console.log("access token exists and is populated");
     accessToken = document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
     console.log("Access_Token: " + accessToken);
     console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
