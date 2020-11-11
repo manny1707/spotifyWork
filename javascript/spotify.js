@@ -25,7 +25,7 @@ async function spotify() {
     };
 
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
-        .then (result => result.json())
+        .then(result => result.json())
         .then(apiResponse => {
             const response = apiResponse;
             console.log(response);
@@ -38,12 +38,10 @@ async function spotify() {
             console.log(currentSongName);
             console.log(currentSongId);
             console.log(currentSongPicture);
-            //let src_str = `https://open.spotify.com/embed/album/${}`;
-            //console.log(`src_str ${src_str}`);
             let image = `<img src=${currentSongPicture}>`
             //let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
-            //let parent_div = $('.music-box');
-            //parent_div.append(image);
+            let parent_div = $('.music-box');
+            parent_div.append(image);
 
             //somewhere here we populate front end
         })
@@ -80,6 +78,7 @@ async function pauseSong(){
             'Authorization': 'Bearer ' + accessToken
         },
     };
+
     await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/pause', apiRequest)
         /*.then(result => result.json())
         .then(apiResponse=>{
@@ -89,17 +88,22 @@ async function pauseSong(){
 }
 
 
+var hash = window.location.hash.substring(1);
+var accessString = hash.indexOf("&");
+accessToken = hash.substring(13, accessString);
+
+
+accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 var hash = window.location.hash.substring(1);
 var accessString = hash.indexOf("&");
 accessToken = hash.substring(13, accessString);
-document.cookie = `Access-Token=${accessToken}`; 
 
-let accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 if (accessToken != null){
     $('.spotifyStatement').hide();
     $('.spotifyButton').hide();
+    document.cookie = `Access-Token=${accessToken}`; 
     spotify();
 }
 
