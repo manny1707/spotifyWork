@@ -87,8 +87,9 @@ async function pauseSong(){
 }
 
 console.log(document.cookie);
+console.log(document.cookie.indexOf("Access_Token="));
 
-if (document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1].length < 3){
+if (document.cookie.indexOf("Access_Token=") === -1){
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
     accessToken = hash.substring(13, accessString);
