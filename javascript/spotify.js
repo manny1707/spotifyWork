@@ -93,7 +93,7 @@ if (document.cookie.indexOf("Access-Token=") === -1){
     document.cookie = `Access-Token=${accessToken}`;
     console.log("no current access token");
 }
-else if (document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1].length < 3){
+else if (document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1].length < 5){
     console.log("access token exists but is unpopulated");
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
