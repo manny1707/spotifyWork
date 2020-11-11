@@ -1,7 +1,7 @@
 var accessToken = null
 
 function Redirect() {
-    window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-read-email&response_type=token';
+    window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%user-modify-playback-state&response_type=token';
 }
 
 async function spotify() {
@@ -20,6 +20,7 @@ async function spotify() {
         },
     };
 
+    var currentSong = null;
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then (result => result.json())
         .then(apiResponse => {
@@ -27,7 +28,7 @@ async function spotify() {
             console.log(response);
             console.log(response.item);
             console.log(response.item.name);
-            const id = response.item.id;
+            currentSong = response.item.id;
             console.log(response.item.id);
             let src_str = `https://open.spotify.com/embed/track/${id}`;
             console.log(`src_str ${src_str}`);
@@ -36,6 +37,8 @@ async function spotify() {
             parent_div.append(iframe);
         })
         .catch(error => console.log(error));
+
+        
 
     
 }
