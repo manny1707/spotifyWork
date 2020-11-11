@@ -54,13 +54,15 @@ async function spotify() {
 
 async function playSong(){
 
-    let apiRequest = {
+    let apiPlayRequest = {
         method: 'PUT',
         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + accessToken
         },
     };
-    await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/play', apiRequest)
+    await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/play', apiPlayRequest)
         /*.then(result => result.json())
         .then(apiResponse=>{
 
@@ -70,14 +72,16 @@ async function playSong(){
 
 async function pauseSong(){
 
-    let apiRequest = {
+    let apiPauseRequest = {
         method: 'PUT',
         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + accessToken
         },
     };
 
-    await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/pause', apiRequest)
+    await fetch('https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/pause', apiPauseRequest)
         /*.then(result => result.json())
         .then(apiResponse=>{
 
