@@ -90,16 +90,19 @@ console.log(document.cookie);
 console.log(document.cookie.indexOf("Access-Token="));
 
 if (document.cookie.indexOf("Access-Token=") === -1){
+    document.cookie = `Access-Token=${accessToken}`;
+    console.log("no current access token");
+}
+else if (document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1].length < 3){
+    console.log("access token exists but is unpopulated");
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
     accessToken = hash.substring(13, accessString);
     document.cookie = `Access-Token=${accessToken}`;
-    console.log("no current access token");
     console.log("Access_Token: " + accessToken);
     console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
 }
-else{
-    console.log("there is a current access token");
+else {
     accessToken = document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
     console.log("Access_Token: " + accessToken);
     console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
