@@ -107,6 +107,7 @@ else{
 
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
+console.log(accessToken);
 if (accessToken != null){
     $(".spotifyStatement").hide();
     $(".spotifyButton").hide();
