@@ -39,7 +39,6 @@ async function spotify() {
             console.log(currentSongPicture);
             let image = `<img src=${currentSongPicture}>`
             let name = `<p>${currentSongName}</p>`
-            let play = `<p>${currentSongName}</p>`
             //let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
             let parent_div = $('.music-box');
             parent_div.append(image);
@@ -58,8 +57,6 @@ async function playSong(){
     let apiRequest = {
         method: 'PUT',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + accessToken
         },
     };
@@ -76,8 +73,6 @@ async function pauseSong(){
     let apiRequest = {
         method: 'PUT',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + accessToken
         },
     };
