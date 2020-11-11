@@ -30,7 +30,7 @@ async function spotify() {
             console.log(response.item);
             console.log(response.item.name);
             currentSong = response.album.id;
-            console.log(response.item.id);
+            console.log(response.album.id);
             let src_str = `https://open.spotify.com/embed/album/${currentSong}`;
             console.log(`src_str ${src_str}`);
             let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
