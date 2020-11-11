@@ -1,5 +1,6 @@
 var accessToken = null;
 var currentSong = null;
+var isPlaying = null;
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
@@ -25,7 +26,7 @@ async function spotify() {
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then (result => result.json())
         .then(apiResponse => {
-            console.log(result);
+            console.log(apiResponse);
             const response = apiResponse
             console.log(response);
             console.log(response.item);
