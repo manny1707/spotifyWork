@@ -86,14 +86,22 @@ async function pauseSong(){
         .catch(error => console.log(error));*/    
 }
 
+if (document.cookie.split('; ').find(element => element.startsWith('Access-Token'))){
+    var hash = window.location.hash.substring(1);
+    var accessString = hash.indexOf("&");
+    accessToken = hash.substring(13, accessString);
+    document.cookie = `Access-Token=${accessToken}`;
+    console.log("no current access token");
+    console.log("Access_Token: " + accessToken);
+    console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
+}
+else{
+    console.log("there is a current access token");
+    accessToken = document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
+    console.log("Access_Token: " + accessToken);
+    console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
+}
 
-var hash = window.location.hash.substring(1);
-var accessString = hash.indexOf("&");
-accessToken = hash.substring(13, accessString);
-document.cookie = `Access-Token=${accessToken}`; 
-console.log("Access_Token: " + accessToken);
-
-console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1])
 
 
 
@@ -102,6 +110,7 @@ console.log("cookie returns: " + document.cookie.split('; ').find(element => ele
 if (accessToken != null){
     $(".spotifyStatement").hide();
     $(".spotifyButton").hide();
+    console.log("BUTTONS SHOULD BE GONE");
     spotify();
 }
 
