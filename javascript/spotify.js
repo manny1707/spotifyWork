@@ -30,18 +30,20 @@ async function spotify() {
             const response = apiResponse;
             console.log(response);
             console.log(response.item);
-            console.log(response.item.name);
+            isPlaying = response.is_playing;
             currentSongName = response.item.name;
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[0].url
+            console.log(isPlaying);
             console.log(currentSongName);
             console.log(currentSongId);
             console.log(currentSongPicture);
-            let src_str = `https://open.spotify.com/embed/album/${currentSong}`;
-            console.log(`src_str ${src_str}`);
-            let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
-            let parent_div = $('#content');
-            parent_div.append(iframe);
+            //let src_str = `https://open.spotify.com/embed/album/${}`;
+            //console.log(`src_str ${src_str}`);
+            let image = `<img src=${currentSongPicture}>`
+            //let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+            //let parent_div = $('.music-box');
+            //parent_div.append(image);
 
             //somewhere here we populate front end
         })
@@ -93,9 +95,11 @@ var accessString = hash.indexOf("&");
 accessToken = hash.substring(13, accessString);
 document.cookie = `Access-Token=${accessToken}`; 
 
+let accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
+
 if (accessToken != null){
-    $('#spotifyStatement').hide();
-    $('#spotifyButton').hide();
+    $('.spotifyStatement').hide();
+    $('.spotifyButton').hide();
     spotify();
 }
 
