@@ -92,13 +92,12 @@ async function pauseSong(){
 var hash = window.location.hash.substring(1);
 var accessString = hash.indexOf("&");
 accessToken = hash.substring(13, accessString);
+document.cookie = `Access-Token=${accessToken}`
 console.log(accessToken);
 console.log(cookies.split('; '));
 console.log(cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1])
 
-if (accessToken != null){
-    document.cookie = `Access-Token=${accessToken}`; 
-}
+
 
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
