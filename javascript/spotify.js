@@ -3,14 +3,12 @@ var currentSongName = null;
 var currentSongPicture = null;
 var currentSongId = null;
 var isPlaying = null;
-var cookies = document.cookie;
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
 }
 
 async function spotify() {
-    console.log("Access_Token: " + accessToken);
     let redirect = "https%3A%2F%2Fmanny1707.github.io%2FspotifyWork";
 
     var encoded = "NzcxNTk4OTEwNGY5NDgxYmI3MDllYjQyODIyMjkwZTE6NGM5ZDg5MDhlZDJiNDlkODliYjdiN2M4OTBkODgxNjY="
@@ -34,7 +32,7 @@ async function spotify() {
             isPlaying = response.is_playing;
             currentSongName = response.item.name;
             currentSongId = response.item.id;
-            currentSongPicture = response.item.album.images[2].url
+            currentSongPicture = response.item.album.images[1].url
             console.log(isPlaying);
             console.log(currentSongName);
             console.log(currentSongId);
@@ -92,8 +90,10 @@ async function pauseSong(){
 var hash = window.location.hash.substring(1);
 var accessString = hash.indexOf("&");
 accessToken = hash.substring(13, accessString);
-cookies = `Access-Token=${accessToken}`;
-console.log(accessToken);
+document.cookie = `Access-Token=${accessToken}`; 
+console.log("Access_Token: " + accessToken);
+
+var cookies = document.cookie;
 console.log(cookies.split('; '));
 //console.log(cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1])
 
@@ -104,7 +104,6 @@ console.log(cookies.split('; '));
 if (accessToken != null){
     $('.spotifyStatement').hide();
     $('.spotifyButton').hide();
-    document.cookie = `Access-Token=${accessToken}; path =/index.html`; 
     spotify();
 }
 
