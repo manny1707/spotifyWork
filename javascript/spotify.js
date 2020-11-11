@@ -3,6 +3,7 @@ var currentSongName = null;
 var currentSongPicture = null;
 var currentSongId = null;
 var isPlaying = null;
+let cookies = document.cookie;
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
@@ -91,14 +92,11 @@ async function pauseSong(){
 var hash = window.location.hash.substring(1);
 var accessString = hash.indexOf("&");
 accessToken = hash.substring(13, accessString);
+console.log(accessToken);
+console.log(cookies.split('; '));
 
 
-accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
-
-var hash = window.location.hash.substring(1);
-var accessString = hash.indexOf("&");
-accessToken = hash.substring(13, accessString);
-
+//accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 if (accessToken != null){
     $('.spotifyStatement').hide();
