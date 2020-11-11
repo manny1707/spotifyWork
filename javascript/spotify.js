@@ -100,8 +100,8 @@ console.log("cookie returns: " + document.cookie.split('; ').find(element => ele
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 if (accessToken != null){
-    $('.spotifyStatement').hide();
-    $('.spotifyButton').hide();
+    $(".spotifyStatement").hide();
+    $(".spotifyButton").hide();
     spotify();
 }
 
