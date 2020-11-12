@@ -35,6 +35,7 @@ async function spotify() {
             let image = `<img src=${currentSongPicture}>`
             let name = `<p>${currentSongName}</p>`
             let parent_div = $('.music-box');
+            $( '.music-box' ).empty();
             parent_div.append(image);
             parent_div.append(name);
 
