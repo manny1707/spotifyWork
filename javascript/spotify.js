@@ -32,8 +32,8 @@ async function spotify() {
             currentSongName = response.item.name;
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[1].url
-            let image = `<img class=image src=${currentSongPicture}>`
-            let name = `<p class=name >${currentSongName}</p>`
+            let image = `<img class="image" src=${currentSongPicture}>`
+            let name = `<p class="name" >${currentSongName}</p>`
             let parent_div = $('.music-box');
             $( '.image' ).empty();
             $( '.name' ).empty();
@@ -44,7 +44,7 @@ async function spotify() {
         })
         .catch(error => console.log(error));  
         
-        setTimeout(spotify, 3000);
+        setTimeout(spotify, 5000);
 }
 
 //there is going to be a front end button that will call a function in the back end
