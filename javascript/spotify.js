@@ -32,10 +32,11 @@ async function spotify() {
             currentSongName = response.item.name;
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[1].url
-            let image = `<img src=${currentSongPicture}>`
-            let name = `<p>${currentSongName}</p>`
+            let image = `<img class=image src=${currentSongPicture}>`
+            let name = `<p class=name >${currentSongName}</p>`
             let parent_div = $('.music-box');
-            $( '.music-box' ).empty();
+            $( '.image' ).empty();
+            $( '.name' ).empty();
             parent_div.append(image);
             parent_div.append(name);
 
@@ -43,7 +44,7 @@ async function spotify() {
         })
         .catch(error => console.log(error));  
         
-        setTimeout(spotify, 5000);
+        setTimeout(spotify, 3000);
 }
 
 //there is going to be a front end button that will call a function in the back end
@@ -100,9 +101,9 @@ else {
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
 if (accessToken != null && accessToken.length > 5){
-    $(".spotifyStatement").hide();
-    $(".spotifyButton").hide();
     console.log("BUTTONS SHOULD BE GONE");
+    $( '.spotifyButton' ).empty();
+    $( '.spotifyStatement' ).empty();
     spotify();
 }
 
