@@ -33,7 +33,6 @@ async function spotify() {
             currentSongName = response.item.name;
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[1].url
-            console.log(isPlaying);
             console.log(currentSongName);
             console.log(currentSongId);
             console.log(currentSongPicture);
@@ -43,7 +42,6 @@ async function spotify() {
             let parent_div = $('.music-box');
             parent_div.append(image);
             parent_div.append(name);
-            parent_div.append(play);
 
             //somewhere here we populate front end
         })
@@ -84,7 +82,6 @@ async function pauseSong(){
 }
 
 console.log(document.cookie);
-console.log(document.cookie.indexOf("Access-Token="));
 
 if (document.cookie.indexOf("Access-Token=") === -1){
     document.cookie = `Access-Token=${accessToken}`;
@@ -111,7 +108,6 @@ else {
 
 //accessToken = cookies.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
 
-console.log(accessToken);
 if (accessToken != null && accessToken.length > 5){
     $(".spotifyStatement").hide();
     $(".spotifyButton").hide();
