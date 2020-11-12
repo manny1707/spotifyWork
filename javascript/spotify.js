@@ -28,24 +28,21 @@ async function spotify() {
         .then(apiResponse => {
             const response = apiResponse;
             console.log(response);
-            console.log(response.item);
             isPlaying = response.is_playing;
             currentSongName = response.item.name;
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[1].url
-            console.log(currentSongName);
-            console.log(currentSongId);
-            console.log(currentSongPicture);
             let image = `<img src=${currentSongPicture}>`
             let name = `<p>${currentSongName}</p>`
-            //let iframe = `<iframe src=${src_str} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
             let parent_div = $('.music-box');
             parent_div.append(image);
             parent_div.append(name);
 
             //somewhere here we populate front end
         })
-        .catch(error => console.log(error));    
+        .catch(error => console.log(error));  
+        
+        setTimeout(spotify, 5000);
 }
 
 //there is going to be a front end button that will call a function in the back end
@@ -85,22 +82,15 @@ console.log(document.cookie);
 
 if (document.cookie.indexOf("Access-Token=") === -1){
     document.cookie = `Access-Token=${accessToken}`;
-    console.log("no current access token");
 }
 else if (document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1].length < 5){
-    console.log("access token exists but is unpopulated");
     var hash = window.location.hash.substring(1);
     var accessString = hash.indexOf("&");
     accessToken = hash.substring(13, accessString);
     document.cookie = `Access-Token=${accessToken}`;
-    console.log("Access_Token: " + accessToken);
-    console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
 }
 else {
-    console.log("access token exists and is populated");
     accessToken = document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1];
-    console.log("Access_Token: " + accessToken);
-    console.log("cookie returns: " + document.cookie.split('; ').find(element => element.startsWith('Access-Token')).split('=')[1]);
 }
 
 
