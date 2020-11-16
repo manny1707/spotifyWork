@@ -4,8 +4,8 @@ var currentSongPicture = null;
 var currentSongId = null;
 var isPlaying = null;
 let parent_div = $('.music-box');
-var image = document.getElementById("image");
-var name = document.getElementById("name");
+var image = document.getElementById("spotifyImage");
+var name = document.getElementById("spotifyName");
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
