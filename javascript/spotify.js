@@ -40,7 +40,7 @@ async function spotify() {
             image.style.visibility = "visible";
             spotifyName.style.visibility = "visible";
             image.src = `${currentSongPicture}`;
-            name.innerHTML = `${currentSongName}`;
+            spotifyName.innerHTML = `${currentSongName}`;
             //`<img class="image" src=${currentSongPicture}>`
             //name = `<p class="name" >${currentSongName}</p>`
 
