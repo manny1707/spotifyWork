@@ -4,6 +4,8 @@ var currentSongPicture = null;
 var currentSongId = null;
 var isPlaying = null;
 let parent_div = $('.music-box');
+var image = document.getElementById("image");
+var name = document.getElementById("name");
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
@@ -32,11 +34,14 @@ async function spotify() {
             isPlaying = response.is_playing;
             currentSongName = response.item.name;
             currentSongId = response.item.id;
-            currentSongPicture = response.item.album.images[1].url
-            let image = `<img class="image" src=${currentSongPicture}>`
-            let name = `<p class="name" >${currentSongName}</p>`
-            parent_div.append(image);
-            parent_div.append(name);
+            currentSongPicture = response.item.album.images[1].url;
+            
+            image.style.display = "show";
+            name.style.display = "show";
+            image.src = `${currentSongPicture}`;
+            name.innerHTML = `${currentSongName}`;
+            //`<img class="image" src=${currentSongPicture}>`
+            //name = `<p class="name" >${currentSongName}</p>`
 
             //somewhere here we populate front end
         })
@@ -104,8 +109,8 @@ else {
 
 if (accessToken != null && accessToken.length > 5){
     console.log("BUTTONS SHOULD BE GONE");
-    let button = document.getElementById("spotifyButton");
-    let statement = document.getElementById("spotifyStatement");
+    var button = document.getElementById("spotifyButton");
+    var statement = document.getElementById("spotifyStatement");
     button.remove();
     statement.remove()
     spotify();
