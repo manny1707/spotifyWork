@@ -192,20 +192,19 @@
 		
 	<div class="display-space">
 		<div class="music-box" >My Music
-		<script type = "text/javascript" src="javascript/spotify.js"></script>
 		<p id = "spotifyStatement" class = "spotifyStatement">Click the following button, and you will be prompted to login to spotify</p>
       	<form class = "spotifyButton" id = "spotifyButton">
         	<input type = "button" value = "Login to Spotify Here" onclick = "Redirect();" />
 		</form>
 		
-		<form class = "spotifyPlay">
+		<form class = "spotifyPlay" id = "spotifyPlay">
         	<input type = "button" value = "Play" onclick = "playSong();" />
 		</form>
-		<form class = "spotifyPause">
+		<form class = "spotifyPause" id = "spotifyPause" >
         	<input type = "button" value = "Pause" onclick = "pauseSong();" />
 		  </form>
 		</div>
-		
+		<script type = "text/javascript" src="javascript/spotify.js"></script>
 		<div class="exercise-box"> 
 			<i class="nav-button-left" id="exercise-left">
 				<i class="arrow-left"></i>
