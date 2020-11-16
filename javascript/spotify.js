@@ -35,8 +35,6 @@ async function spotify() {
             currentSongPicture = response.item.album.images[1].url
             let image = `<img class="image" src=${currentSongPicture}>`
             let name = `<p class="name" >${currentSongName}</p>`
-            document.getElementById('image').remove();
-            document.getElementById('name').remove();
             parent_div.append(image);
             parent_div.append(name);
 
@@ -106,8 +104,10 @@ else {
 
 if (accessToken != null && accessToken.length > 5){
     console.log("BUTTONS SHOULD BE GONE");
-    $( '.spotifyButton' ).remove();
-    $( '.spotifyStatement' ).remove();
+    let button = document.getElementById("spotifyButton");
+    let statement = document.getElementById("spotifyStatement");
+    button.remove();
+    statement.remove()
     spotify();
 }
 
