@@ -35,14 +35,18 @@ async function spotify() {
             let image = `<img class="image" src=${currentSongPicture}>`
             let name = `<p class="name" >${currentSongName}</p>`
             let parent_div = $('.music-box');
-            $( '.image' ).empty();
-            $( '.name' ).empty();
+            document.getElementById('image').remove();
+            document.getElementById('name').remove();
             parent_div.append(image);
             parent_div.append(name);
 
             //somewhere here we populate front end
         })
-        .catch(error => console.log(error));  
+        .catch(error => {
+            console.log(error)
+            let error = `<p class="error" > Nothing is currently being played, play music on your device to control it here!</p>`
+            parent_div.append(name);
+        });  
         
         setTimeout(spotify, 5000);
 }
@@ -102,6 +106,8 @@ else {
 
 if (accessToken != null && accessToken.length > 5){
     console.log("BUTTONS SHOULD BE GONE");
+    document.getElementById('spotifyButton').remove();
+    document.getElementById('spotifyStatement').remove();
     $( '.spotifyButton' ).empty();
     $( '.spotifyStatement' ).empty();
     spotify();
