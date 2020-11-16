@@ -5,7 +5,7 @@ var currentSongId = null;
 var isPlaying = null;
 let parent_div = $('.music-box');
 var image = document.getElementById("spotifyImage");
-var name = document.getElementById("spotifyName");
+var spotifyName = document.getElementById("spotifyName");
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
@@ -37,7 +37,7 @@ async function spotify() {
             currentSongPicture = response.item.album.images[1].url;
             
             image.style.display = "show";
-            name.style.display = "show";
+            spotifyName.style.display = "show";
             image.src = `${currentSongPicture}`;
             name.innerHTML = `${currentSongName}`;
             //`<img class="image" src=${currentSongPicture}>`
