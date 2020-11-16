@@ -36,8 +36,9 @@ async function spotify() {
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[1].url;
             
-            image.style.display = "show";
-            spotifyName.style.display = "show";
+            
+            image.style.visibility = "visible";
+            spotifyName.style.visibility = "visible";
             image.src = `${currentSongPicture}`;
             name.innerHTML = `${currentSongName}`;
             //`<img class="image" src=${currentSongPicture}>`
