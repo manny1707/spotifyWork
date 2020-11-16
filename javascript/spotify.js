@@ -106,10 +106,8 @@ else {
 
 if (accessToken != null && accessToken.length > 5){
     console.log("BUTTONS SHOULD BE GONE");
-    document.getElementById('spotifyButton').remove();
-    document.getElementById('spotifyStatement').remove();
-    $( '.spotifyButton' ).empty();
-    $( '.spotifyStatement' ).empty();
+    $( '.spotifyButton' ).remove();
+    $( '.spotifyStatement' ).remove();
     spotify();
 }
 
