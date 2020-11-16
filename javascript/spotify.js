@@ -44,8 +44,8 @@ async function spotify() {
         })
         .catch(error => {
             console.log(error)
-            let error = `<p class="error" > Nothing is currently being played, play music on your device to control it here!</p>`
-            parent_div.append(name);
+            let errorMessage = `<p class="errorMessage" > Nothing is currently being played, play music on your device to control it here!</p>`
+            parent_div.append(errorMessage);
         });  
         
         setTimeout(spotify, 5000);
