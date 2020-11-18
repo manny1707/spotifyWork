@@ -6,6 +6,9 @@ var isPlaying = null;
 let parent_div = $('.music-box');
 var image = document.getElementById("spotifyImage");
 var spotifyName = document.getElementById("spotifyName");
+var spotifyPlay = document.getElementById("spotifyPlay");
+var spotifyPause = document.getElementById("spotifyPause");
+var errorMessage = document.getElementById("errorMessage");
 
 function Redirect() {
     window.location = 'https://accounts.spotify.com/authorize?client_id=7715989104f9481bb709eb42822290e1&redirect_uri=https%3A%2F%2Fmanny1707.github.io%2FspotifyWork&scope=user-read-currently-playing%20user-modify-playback-state&response_type=token';
@@ -29,14 +32,16 @@ async function spotify() {
     await fetch(`https://cors-anywhere.herokuapp.com/api.spotify.com/v1/me/player/currently-playing?market=US`, apiRequest)
         .then(result => result.json())
         .then(apiResponse => {
+            errorMessage.style.visibility = "hidden";
             const response = apiResponse;
             console.log(response);
             isPlaying = response.is_playing;
             currentSongName = response.item.name;
             currentSongId = response.item.id;
             currentSongPicture = response.item.album.images[1].url;
-            
-            
+
+            spotifyPlay.style.visibility = "visible";
+            spotifyPause.style.visibility = "visible";
             image.style.visibility = "visible";
             spotifyName.style.visibility = "visible";
             image.src = `${currentSongPicture}`;
@@ -48,7 +53,7 @@ async function spotify() {
         })
         .catch(error => {
             console.log(error)
-            let errorMessage = `<p class="errorMessage" > Nothing is currently being played, play music on your device to control it here!</p>`
+            errorMessage.style.visibility = "visible";
             parent_div.append(errorMessage);
         });  
         
