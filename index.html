@@ -196,15 +196,14 @@
       	<form class = "spotifyButton" id = "spotifyButton">
         	<input type = "button" value = "Login to Spotify Here" onclick = "Redirect();" />
 		</form>
-		
-		<form class = "spotifyPlay" style="visibility: hidden;"  id = "spotifyPlay">
+		  <img class="image" src="" style="visibility: hidden;" id ="spotifyImage">
+		  <p class="name" style="visibility: hidden;" id="spotifyName"></p>
+		  <form class = "spotifyPlay" style="visibility: hidden;"  id = "spotifyPlay">
         	<input type = "button" value = "Play" onclick = "playSong();" />
 		</form>
 		<form class = "spotifyPause" style="visibility: hidden;"  id = "spotifyPause" >
         	<input type = "button" value = "Pause" onclick = "pauseSong();" />
 		  </form>
-		  <img class="image" src="" style="visibility: hidden;" id ="spotifyImage">
-		  <p class="name" style="visibility: hidden;" id="spotifyName"></p>
 		  <p class="errorMessage"style="visibility: hidden;" id="errorMessage" > Nothing is currently being played, play music on your device to control it here!</p>
 		</div>
 		<script type = "text/javascript" src="javascript/spotify.js"></script>
